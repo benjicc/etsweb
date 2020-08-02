@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EL NOMBRE DE LA PREGUNTA</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+
+</head>
+
+<body>
+    
+        <div class="gray-bg">
+        <div class="">
+        
+        </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>EL NOMBRE DE LA PREGUNTA</h2>
+                    
+                    
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        
+                        <div class="ibox-content">
+                            <form method="get" class="form-horizontal">
+                                
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group"><label class="col-sm-2 control-label">LA PREGUNTA</label>
+                                    
+                                    <img src="imagenes/surt.jpg" name="image" id="file-preview" ismap usemap="#image-map" class="center" >
+                                                    <map name="image-map">
+                                                        <area onclick="Evaluation('correcto');" alt="sdsd" title="es el titulo"  coords="25,159,110,225" shape="rect">
+                                                        <area onclick="Evaluation('incorrecto');" alt="sdsd" title="es el titulo1"  coords="350,253,595,348" shape="rect">
+                                                    </map>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+
+       
+
+<style>
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 50%;
+}
+
+</style>
+<script>
+    
+    r = 3;
+    console.log(r);
+    function Evaluation(valor){
+        if(r != 0){
+        if(valor == "incorrecto"){
+            alert("Respuesta incorrecta!!");
+            r = r-1;
+        }else if (valor == "correcto"){
+            alert("respuesta correcta!!");
+            r = r-1;
+        }
+            
+        }else{
+        alert("Ya no tienes intentos");
+    }
+    console.log(r);
+}
+    
+</script>
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.i-checks').iCheck({
+                    checkboxClass: 'icheckbox_square-green',
+                    radioClass: 'iradio_square-green',
+                });
+            });
+        </script>
+</body>
+
+</html>
+

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Pregunta Hot Spot</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+        <link href="css/animate.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        
+            <div  class="gray-bg">
+                <div class="row border bottom">
+                    <form method="post" class="form-horizontal" action="AddHotspot" enctype="multipart/form-data">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                
+                                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hot Spot</h3>
+                                    
+                                    <div class="ibox-title">
+                                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pregunta</h4>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                    </div>
+                                    </div>
+                                
+                                <div class="ibox-content" style="display:none;">
+                                    
+                                        <div id="divInputLoad">
+                                            <div id="divFileUpload"><form method="post" class="form-horizontal" action="AddHotspot" enctype="multipart/form-data">
+                                                <div class="form-group"><label class="col-sm-2 control-label">nombre de la pregunta</label>
+                                                    <div class="col-sm-9">
+                                                        <input name="nombrepregunta" type="text" placeholder="Escribe la pregunta" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label class="col-sm-2 control-label">Pregunta</label>
+                                                    <div class="col-sm-9"><input name="pregunta" type="text" placeholder="Escribe la pregunta" class="form-control">
+                                                        <input type="text" name="conteo" id="conteo" hidden>
+                                                        <input type="text" name="path" id="path" hidden>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label class="col-sm-2 control-label">Selecciona una imagen:</label>
+                                                    <div class="col-sm-10"><input name="imagen" id="file-upload" type="file" accept="image/*" />
+                                                    </div>
+                                                    <img  name="image" id="file-preview" ismap usemap="#image-map" class="center" >
+                                                    
+                                                </div>
+                                                <div id="file-preview-zone">
+                                                </div>
+                                                <div id="mapsect">
+                                                    <div class="wrapper wrapper-content animated fadeInRight">
+                                                        <div class="row">
+
+                                                            <div class="col-lg-12">
+                                                                <div class="ibox float-e-margins">
+                                                                    <div class="ibox-content">
+                                                                        <div id="table"></div>
+                                                                        <table class="table table-striped" id="tabms">
+                                                                            <thead>
+                                                                            <tr>
+                                                                                <th>Activo</th>
+                                                                                <th>Tipo</th>
+                                                                                <th>Tipo Opcion</th>
+                                                                                <th>Title</th>
+                                                                                <th>Coordenadas</th>
+                                                                                <th>Accion</th>
+                                                                            </tr>
+                                                                            </thead>
+                                                                            <tbody>
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+                                        
+                                    </div>
+                                </div>
+                                    
+                        </div>
+                    
+                    </div>
+                    </div>
+                    <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intentos</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                
+                            </div>
+                        </div>
+                        <div class="ibox-content" style="display:none;">
+                            <div class="form-group"><label class="col-sm-2 control-label">Intentos</label>
+                                <div class="col-lg-3">
+                                    <input name="intentos" type="number" min="1" placeholder="Numero de intentos" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-sm-2 control-label">Frase Inicial</label>
+                                <div class="col-lg-9">
+                                    <input name="frinicial" type="text" placeholder="Frase inicial" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-sm-2 control-label">Instruccion de evaluacion</label>
+                                <div class="col-lg-9">
+                                    <input name="freval" type="text" placeholder="Escribe la instruccion de evaluacion" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-sm-2 control-label">Frase de respuesta corecta</label>
+                                <div class="col-lg-9">
+                                    <input name="frrc" type="text" placeholder="Escribe la frase de respuesta correcta" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-sm-2 control-label">Frase de respuesta incorrecta</label>
+                                <div class="col-lg-9">
+                                    <input name="frri" type="text" placeholder="Escribe la frase para respuesta inocrrecta" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-sm-2 control-label">Frase de intentos</label>
+                                <div class="col-lg-9">
+                                    <input name="frintent" type="text" placeholder="Escribe la frase para intentos" class="form-control">
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="fa fa-save btn btn-primary center" type="submit" value="Guardar pregunta"> Guardar pregunta</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>        
+        </div>
+    </div>
+</body>
+<script>
+    contador =1;
+    var conteo = document.getElementById("conteo");
+    conteo.value=contador;
+    function readFile(input) {
+        predoc=document.getElementById('file-preview');
+        predoc.src="";
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+ 
+            reader.onload = function (e) {
+                //e.target.result contents the base64 data from the image uploaded
+                predoc.src = e.target.result;
+                
+                archivo=document.getElementById("divFileUpload");
+                var previewZone = document.getElementById('file-preview-zone');
+                previewZone.appendChild(predoc);
+                initmapsect(contador);
+                document.getElementById('path').value=document.getElementById("file-upload").value
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+ 
+    var fileUpload = document.getElementById('file-upload');
+    fileUpload.onchange = function (e) {
+        readFile(e.srcElement);
+    }
+ 
+</script>
+<script>
+    dict = {};
+    $(document).ready(function() {
+    cords = [];
+    cordsr = [];
+    $("img").on("click", function(event) {
+        
+        
+        var radio = $('input[name="activo"]:checked').val();
+        if($("#tipo"+radio.toString()+"").val()=="circle"){
+        var cord = "";
+        var x = event.pageX - this.offsetLeft;
+        var y = event.pageY - this.offsetTop;
+        cords.push(x);
+        cords.push(y);
+        cord =cords[0]+","+cords[1]+","+cords[2]+","+cords[3];
+        dict[radio]=cord
+    }else if($("#tipo"+radio.toString()+"").val()=="rect"){
+        var x = event.pageX - this.offsetLeft;
+        
+        var y = event.pageY - this.offsetTop;
+        cordsr.push(x);
+        cordsr.push(y);
+        cord =cordsr[0]+","+cordsr[1]+","+cordsr[2]+","+cordsr[3];
+        dict[radio]=cord
+    }
+    $("#coordenadas"+radio.toString()+"").val(dict[radio]);
+    if (cords.length >= 4 ){
+        cords=[];
+        cord="";
+    }
+    if (cordsr.length >= 4 ){
+        cordsr=[];
+        cord="";
+    }
+    });
+});
+
+</script>
+<script>
+    function initmapsect(contador){
+
+        texto="<tr id='fila"+contador.toString()+"'><td><input type='radio' value="+contador+" checked id='activo"+contador.toString()+"' name='activo'></td><td><select name='tipo"+contador.toString()+"' id='tipo"+contador.toString()+"'><option value='circle'>Circulo</option><option value='rect'>Rectangulo</option></select></td><td><select name='link"+contador.toString()+"' id='link"+contador.toString()+"'><option value='correcto'>Correcta</option><option value='incorrecto'>Incorrecta</option></select></td><td><input id='title"+contador.toString()+"' type='text' class='form-control' name='title"+contador.toString()+"'></td><td><input type='text' id='coordenadas"+contador.toString()+"' class='form-control' name='coordenadas"+contador.toString()+"'></td><td><span class='input-group-addon'><button id ='button"+contador.toString()+"' name='buttton"+contador.toString()+"' class='btn btn-primary  btn-circle' type='button' onclick='Nuevasect("+contador+");'><i id ='id_icono"+contador.toString()+"' class='fa fa-plus'></i></button></span></td></tr>";
+        $('tbody').append(texto);
+    }
+</script>
+<script>
+    function Nuevasect(contador){
+        var conteo = document.getElementById("conteo");
+        
+        contador = parseInt(conteo.value) + 1;
+        conteo.value=contador;
+        texto="<tr id='fila"+contador.toString()+"'><td><input type='radio' value="+contador+" checked id='activo"+contador.toString()+"' name='activo'></td><td><select name='tipo"+contador.toString()+"' id='tipo"+contador.toString()+"'><option value='circle'>Circulo</option><option value='rect'>Rectangulo</option></select></td><td><select name='link"+contador.toString()+"' id='link"+contador.toString()+"'><option value='correcto'>Correcta</option><option value='incorrecto'>Incorrecta</option></select></td><td><input id='title"+contador.toString()+"' type='text' class='form-control' name='title"+contador.toString()+"'></td><td><input type='text' id='coordenadas"+contador.toString()+"' class='form-control' name='coordenadas"+contador.toString()+"'></td><td><span class='input-group-addon'><button id ='button"+contador.toString()+"' name='buttton"+contador.toString()+"' class='btn btn-primary  btn-circle' type='button' onclick='Nuevasect("+contador+");'><i id ='id_icono"+contador.toString()+"' class='fa fa-plus'></i></button></span></td></tr>";
+        $('tbody').append(texto);
+
+        // Obtenemos el penultimo elemento de training phrases
+        var contadorAnterior = contador-1;
+
+        // Obtenemos el elemento del DOM del boton y del icono
+        var botonAnterior = "button" + contadorAnterior.toString();
+        var iconoAnterior = "id_icono" + contadorAnterior.toString();
+
+        // Removemos la clase que tenia el boton "verde" y le colocamos el boton "rojo"
+        $(`#${botonAnterior}`).removeClass('btn-primary');
+        $(`#${botonAnterior}`).addClass('btn-danger');
+
+        // Removemos la clase que tenia el icono "+" y le colocamos el icono "bote de basura"
+        $(`#${iconoAnterior}`).removeClass('fa-plus');
+        $(`#${iconoAnterior}`).addClass('fa-trash');
+
+        /*  Le cambiamos el atributo "onclick" al penultimo elemento para que en lugar 
+            de al darle click activar la función NuevaFrase active la función EliminarFrase 
+        */
+        document.getElementById(botonAnterior).setAttribute( "onClick", `EliminarSect(${contadorAnterior})`);
+        
+        
+    }
+</script>
+<script>
+    function EliminarSect(contadorBorrar){
+        
+        var conteo = document.getElementById("conteo");
+        conteo.value = parseInt(conteo.value)-1;
+        var contador_aux = 1;
+
+            // Obtenemos el div que tenemos que borrar
+            idDiv = "fila" + contadorBorrar.toString();
+            div = document.getElementById(idDiv);
+
+            //Obtenemos el elemento padre del div que tenemos que borrar y eliminamos a su hijo
+            padre = div.parentNode;
+            padre.removeChild(div);
+            
+
+            /*  Cuando se borra un training phrases tenemos que recorrer los training phrases
+                que estan despues de el para recorrer hacia abajo los elementos
+            */
+
+            for(i=contadorBorrar; i >= contador_aux; i++ ){
+                // Va a ser el indice del elemento que esta despues del que se eliminó
+                var anterior = i+1;
+                // EL elemento posterior al elemento que se borro pasará a este nuevo indice
+                var nuevo = i;
+                //viejos
+                actviejo = "activo"+anterior.toString();
+                filaidviejo = "fila"+ anterior.toString();
+                tiponameviejo= "tipo"+ anterior.toString();
+                linknameviejo= "link"+ anterior.toString();
+                titlenameviejo= "title"+ anterior.toString();
+                targetnameviejo= "target"+anterior.toString();
+                coordenadasnameviejo= "coordenadas"+ anterior.toString();
+                botonviejo = "button" + anterior.toString();
+                iconoviejo = "id_icono" + anterior.toString();
+                
+                //nuevos
+                actnuevo = "activo"+nuevo.toString();
+                filaidnuevo = "fila"+nuevo.toString();
+                tiponamenuevo= "tipo"+ nuevo.toString();
+                linknamenuevo= "link"+ nuevo.toString();
+                titlenamenuevo= "title"+ nuevo.toString();
+                targetnamenuevo= "target"+nuevo.toString();
+                coordenadasnamenuevo= "coordenadas"+ nuevo.toString();
+                botonnuevo = "button" + nuevo.toString();
+                icononuevo = "id_icono" + nuevo.toString();
+                
+                //reasignamos names y ids
+                activo = document.getElementById(actviejo);
+                activo.value = nuevo.toString();
+                activo.id = actnuevo;
+                fila = document.getElementById(filaidviejo);
+                fila.id = filaidnuevo;
+                tipo = document.getElementById(tiponameviejo);
+                tipo.name=tiponamenuevo;
+                tipo.id=tiponamenuevo;
+                link = document.getElementById(linknameviejo);
+                link.id=linknamenuevo;
+                link.name=linknamenuevo;
+                title = document.getElementById(titlenameviejo);
+                title.id=titlenamenuevo;
+                title.name=titlenamenuevo;
+                
+                coordenadas = document.getElementById(coordenadasnameviejo);
+                coordenadas.id=coordenadasnamenuevo;
+                coordenadas.name=coordenadasnamenuevo;
+                boton_modificar2 = document.getElementById(botonviejo);
+                boton_modificar2.id=botonnuevo;
+                boton_modificar2.name=botonnuevo;
+                dict[nuevo] = dict[anterior];
+                delete(dict[anterior]);
+                if(i < (contador_aux-1)){
+                document.getElementById(botonnuevo).setAttribute( "onClick", 'EliminarSect('+nuevo+')');
+                }
+                icono_modificar2 = document.getElementById(iconoviejo);
+                icono_modificar2.id = icononuevo;
+                icono_modificar2.name = icononuevo;
+            }
+            
+    
+    }
+</script>
+
+<style>.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 50%;
+}
+.col-lg-12{
+    padding-left: 0px!important;
+    padding-right: 0px !important;
+}
+</style>
+<!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    
+
+    <!-- iCheck -->
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.i-checks').iCheck({
+                    checkboxClass: 'icheckbox_square-green',
+                    radioClass: 'iradio_square-green',
+                });
+            });
+        </script>
+</html>

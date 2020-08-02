@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Proyecto ETS</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10 center">
+                    <h2>Creacion de Preguntas</h2>
+                    <ol class="breadcrumb">
+                        
+                        <li>
+                            <a href="preguntanueva.html">Crear Nueva Pregunta</a>
+                        </li>
+                        
+                    </ol>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            <a href="login.html">
+                        <i class="fa fa-sign-out"></i> Sign out
+            </a>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <div class="ibox-content">
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre de la Pregunta</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Pregunta 1</td>
+                                <td>
+                                    <button type="button" class="btn btn-w-m btn-default">Ver Pegunta</button>
+                                    <button type="button" class="btn btn-w-m btn-primary">Modificar Pregunta</button>
+                                    <button type="button" class="btn btn-w-m btn-success">Eliminar Pregunta</button>
+                                </td>
+                            </tr>
+                    
+                            
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                    
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Peity -->
+    <script src="js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- Peity -->
+    <script src="js/demo/peity-demo.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+
+</body>
+
+</html>

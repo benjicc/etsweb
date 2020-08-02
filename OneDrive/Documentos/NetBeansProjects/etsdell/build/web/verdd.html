@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Drag n Drop</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+        <link href="css/animate.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="main.css" />
+</head>
+<body>
+	<div class="app">
+		<header>
+			<h1>DRAG n DROP</h1>
+		</header>
+		<div class="lists gray-bg">
+			<div class="list col-sm-6">
+                            <div class="list-item col-sm-6" id="drag1" ondragstart="drag(event)" draggable="true"><p id="drop1">List item 1</p></div>
+				<div class="list-item col-sm-6" id="drag2" ondragstart="drag(event)" draggable="true"><p id="drop2">List item 2</p></div>
+				<div class="list-item col-sm-6" id="drag3" ondragstart="drag(event)"draggable="true"><p id="drop3">List item 3</p></div>
+                                <div class="list-item col-sm-12" id="drag4" ondragstart="drag(event)"draggable="true">
+                                        <img name="1" id="drop2" src="https://assets.entrepreneur.com/content/3x2/2000/20190927183318-Spiderman.jpeg" width="150" height="150">
+                                </div>
+			</div>
+                    <div class="list"id="div1" ondrop="drop(event,);" ondragover="allowDrop(event);">
+                        <table class="table" id="tabladrop">
+                            <tr id="1">
+                                <td id="dro1">
+                                    <nav class="list-item col-sm-12" >
+                                        <img id="drop1" src="https://assets.entrepreneur.com/content/3x2/2000/20190927183318-Spiderman.jpeg" width="150" height="150">
+                                    </nav>
+                                </td>
+                                <td id="dra1">
+                                    <nav class="list-item col-sm-12" id="rdrop1">
+                                        respuesta
+                                    </nav>
+                                </td>
+                            </tr>
+                            <tr id="3">
+                                <td id="dro3">
+                                    <nav class="list-item col-sm-12" >
+                                        <p id="drop3">alv</p>
+                                    </nav>
+                                </td>
+                                <td id="dra3">
+                                    <nav class="list-item col-sm-12" id="rdrop3">
+                                        respuesta
+                                    </nav>
+                                </td>
+                            </tr>
+                            <tr id="2">
+                                <td id="dro2">
+                                    <nav class="list-item col-sm-12" >
+                                        <img name="1" id="drop2" src="https://assets.entrepreneur.com/content/3x2/2000/20190927183318-Spiderman.jpeg" width="150" height="150">
+                                    </nav>
+                                </td>
+                                <td id="dra2">
+                                    <nav class="list-item col-sm-12 text-center" id="rdrop2">
+                                        respuesta
+                                    </nav>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+		</div>
+            <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-2">
+                                        <button class="btn btn-primary" type="button" onclick="Califica();">Califica</button>
+                                    </div>
+                                </div>
+	</div>
+    <style>
+        .lists .list{
+            max-width: 100% !important;
+        }
+    </style>
+    <script>
+        cal = 0;
+        function Califica(){
+            opc = 3;
+            var tables = document.getElementById("tabladrop");
+
+            for(w=1;w<=opc;w++){
+                inc = 'drop'+w.toString();
+                resp = dictdr['drop'+w.toString()];
+                if(inc == resp){
+                    cal++;
+                }
+            }
+            console.log(cal)
+        }    
+        
+        
+        
+    </script>
+        <script>
+            dictdr={};
+            function drop(ev) {
+                
+            ev.preventDefault();
+            var data=ev.dataTransfer.getData("text/html");
+            /* If you use DOM manipulation functions, their default behaviour it not to 
+               copy but to alter and move elements. By appending a ".cloneNode(true)", 
+               you will not move the original element, but create a copy. */
+            var nodeCopy = document.getElementById(data).cloneNode(true);
+            nodeCopy.id = "newId"; /* We cannot use the same ID */
+            console.log(data)
+            ev.target.appendChild(nodeCopy);
+            var n = document.getElementById(nodeCopy.id);
+            var s = n.parentNode.nodeName;
+            console.log(ev.target.id)
+            if(s == "TD"){
+                n.remove();
+            }else if(s == "IMG"){
+                console.log("EEEEEEEEEEEEEEEEEEEEEEEEE");
+                n.remove();
+            }else if(s == "DIV"){
+                console.log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+                n.remove();
+            }else if(s == "P"){
+                console.log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+                n.remove();
+            }else if(s == "NAV"){
+            }
+            var destino = document.getElementById(ev.target.id);
+            try{
+                padre = destino.parentNode;
+                document.getElementById(ev.target.id).innerHTML = document.getElementById(n.id).innerHTML;
+
+                abuelo = padre.parentNode;
+                celdadrop = abuelo.childNodes[1].childNodes[1].childNodes[1].id;
+                dictdr[celdadrop]=padre.childNodes[1].childNodes[1].id;
+                console.log(dictdr)
+        }catch(o){
+            console.log(o)
+        }
+        try{
+            padre = destino.parentNode;
+            abuelo = padre.parentNode;
+            celdadrop = abuelo.childNodes[3].childNodes[1].childNodes[0].id
+            dictdr[celdadrop]=padre.childNodes[1].childNodes[0].id;
+            console.log(dictdr)
+        }catch(q){
+            console.log(q)
+        }
+            }
+            
+        </script>
+        <script>
+            
+        function allowDrop(ev) {
+          /* The default handling is to not allow dropping elements. */
+          /* Here we allow it by preventing the default behaviour. */
+          ev.preventDefault();
+        }
+
+        function drag(ev) {
+          /* Here is specified what should be dragged. */
+          /* This data will be dropped at the place where the mouse button is released */
+          /* Here, we want to drag the element itself, so we set it's ID. */
+          ev.dataTransfer.setData("text/html", ev.target.id);
+        }
+         
+        </script>
+</body>
+</html>
